@@ -52,6 +52,31 @@ const deleteUser = async (id) => {
         console.log("check error1", error)
     }
 }
+
+const getUserByID = async (id) => {
+    const connection = await mysql.createConnection({host: 'localhost', user: 'root', database: 'jwt', Promise: Bluebird});
+    try {
+        const [rows, fields] = 
+        await connection.execute('SELECT * FROM users WHERE id=?', [id]) ;
+        return rows;
+    }
+    catch(error){
+        console.log("check error1", error)
+    }
+}
+
+const updateUserInfo = async (email, username, id) => {
+    const connection = await mysql.createConnection({host: 'localhost', user: 'root', database: 'jwt', Promise: Bluebird});
+    try {
+        const [rows, fields] = 
+        await connection.execute('UPDATE users SET email = ?, username = ? WHERE id = ?',
+            [email, username, id]) ;
+        return rows;
+    }
+    catch(error){
+        console.log("check error1", error)
+    }
+}
 module.exports = {
-    createNewUser, getUserList, deleteUser
+    createNewUser, getUserList, deleteUser, getUserByID, updateUserInfo
 }
