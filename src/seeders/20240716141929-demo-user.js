@@ -11,21 +11,21 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-     await queryInterface.bulkInsert('Users', [
+     await queryInterface.bulkInsert('User', [
       {
-       email: 'John Doe1',
+       email: 'John Doe',
        password: '',
-       username: '1'
+       username: ''
       },
       {
-        email: 'John Doe2',
+        email: 'John Doe',
         password: '',
-        username: '2'
+        username: ''
       },
       {
-        email: 'John Doe3',
+        email: 'John Doe',
         password: '',
-        username: '3'
+        username: ''
       },
     ], 
   {});
